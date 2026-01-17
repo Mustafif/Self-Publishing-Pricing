@@ -7,7 +7,7 @@ While platforms like Kindle Direct Publishing do offer a free ISBN option, you c
 
 
 == Literary Review
-
+#include "literary_review.typ"
 
 
 

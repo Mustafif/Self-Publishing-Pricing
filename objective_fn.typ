@@ -36,13 +36,44 @@ $<mnl>
 // Assumptions of our model
 In this paper we have assumptions that our model follows, the first is that we assume the population $M$ in our model are aware of our book and will decide if they want to purchase it at one of the platforms we are selling our book, or choose the no purchase option $v_0$ and we have lost that customer. 
 
-Our second assumption assumes that platforms that provide lower royalty rates but have a large market share will experience lower price sensitivity due to their dominant position in the market. On the other hand, our third assumption assuems that platforms which provide high royalty rates but have a small market share will experience higher price sensitivity due to their need to compete by price more than quality of the platform against the more dominant platforms. 
+Our second assumption assumes that platforms that provide lower royalty rates but have a large market share will experience lower price sensitivity due to their dominant position in the market. On the other hand, our third assumption assumes that platforms which provide high royalty rates but have a small market share will experience higher price sensitivity due to their need to compete by price more than quality of the platform against the more dominant platforms. 
 
 
 == Differential Evolution 
 
+The optimization algorithm that we use in this paper is called Differential Evolution (DE) #cite(<storn_differential_nodate>), which is a population based, gradient or derivative free algorithm that can be used to find global optimium values. 
+
+Under this algorithm, there are 4 main steps that are followed, which are _initialization_, _mutation_, _crossover_ and _selection_. 
+
+// 1. Initialization: Randomly generate the search space vector with $"NP"$ members and locate their positions randomly. 
+// #align(center)[
+// $(X_(1,"G"), X_2, ..., X_"NP")$
+// ]
+
+1. Initialization: We randomly generate our target vector or population with NP members for each generation G. We represent our target vector as X where it's defined as: 
+#align(center)[
+$X_(i,G)$, where $i=1,2,..."NP"$
+]
+
+2. Mutation: Once the target vectors have been initialized, for each candidate target vector $X_(i, G)$, where $i=1,2, ..., "NP"$, we apply a randomly sampled difference, this new vector created is called the differential mutation, and will be denoted as M: 
+
+$
+M_(i, G) = X_(a, G) + F*(X_(b, G) - X_(c, G))
+$
+
 #todo[
   Describe differential evolution and what each of its operations does in our own words 
+
+  We want to nention this is a gradient free global optimization algortihm from #cite(<storn_differential_nodate>)
+
+  The 4 main operations to discuss are: 
+
+  1. Initialization 
+  2. Mutation
+  3. Crossover
+  4. Selection 
+
+  From the paper, develop a summary of these 4 operations so we can satisfy this section. 
 ]
 
 == Scenario Testing
