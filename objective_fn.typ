@@ -55,26 +55,57 @@ Under this algorithm, there are 4 main steps that are followed, which are _initi
 $X_(i,G)$, where $i=1,2,..."NP"$
 ]
 
-2. Mutation: Once the target vectors have been initialized, for each candidate target vector $X_(i, G)$, where $i=1,2, ..., "NP"$, we apply a randomly sampled difference, this new vector created is called the differential mutation, and will be denoted as M: 
+2. Mutation: Once the target vectors have been initialized, for each candidate target vector $X_(i, G)$, where $i=1,2, ..., "NP"$, we apply a randomly sampled difference to be added to it, this vector is called the differential mutation, and will be denoted as M: 
 
 $
 M_(i, G) = X_(a, G) + F*(X_(b, G) - X_(c, G))
 $
 
-#todo[
-  Describe differential evolution and what each of its operations does in our own words 
+The indices $a, b, c in {1, 2, ..., "NP"}$ are randomly chosen and must be different from the candidate index $i$ or $a,b,c != i$. We also have a scalar factor $F in [0, infinity)$ which controls the amplification of the evolution. 
 
-  We want to nention this is a gradient free global optimization algortihm from #cite(<storn_differential_nodate>)
-
-  The 4 main operations to discuss are: 
-
-  1. Initialization 
-  2. Mutation
-  3. Crossover
-  4. Selection 
-
-  From the paper, develop a summary of these 4 operations so we can satisfy this section. 
+3. Crossover: The crossover stage is used to determine the mutated candidates that can enter the next evolution stage. The trial vector is represented as: 
+#align(center)[
+$T_(i, G+1) = (T_(i, G+1), T_(2i, G+1), ..., T_("NP"i, G+1))$
 ]
+where each term $T_("ji", G+1)$ is defined as: 
+
+$
+T_("ji", G+1) = cases(
+  M_("ji", G+1) ", if" p_j <= "CR", 
+  X_("ji", G) ", otherwise"
+) quad j=1,2, ..., "NP"
+$<crossover>
+
+In #ref(<crossover>), the term $p_j$ is a uniformly distributed random number $p_j ~ U(0,1)$, and CR is called the crossover constant, where $"CR" in [0, 1]$. 
+
+4. Selection: The selection stage decides whether or not the trial vector $T_(i, G+1)$ should become a member of the next generation ($G+1$), the target vector $X_(i, G)$ is compared to the trial vector using the objective function $phi$. 
+
+$
+X_(i, G+1) <- cases(
+  T_(i, G+1) ", if" phi(T_(i, G+1)) <= phi(X_(i, G)), 
+  X_(i, G) ", otherwise"
+)
+$<selection>
+
+In this selection process, we check if the trial vector $T$ improves the performance from the objective function compared to the target vector, if it does we replace the target vector with it, if not the next generation will inherit the parameters from the previous generation. 
+
+#todo[iffy on this one paragraph below]
+The steps 2-4 are repeated until the algorithm converges or other criteria is met, such as max iteration has been met, or some other predefined condition. 
+
+// #todo[
+//   Describe differential evolution and what each of its operations does in our own words 
+
+//   We want to nention this is a gradient free global optimization algortihm from #cite(<storn_differential_nodate>)
+
+//   The 4 main operations to discuss are: 
+
+//   1. Initialization 
+//   2. Mutation
+//   3. Crossover
+//   4. Selection 
+
+//   From the paper, develop a summary of these 4 operations so we can satisfy this section. 
+// ]
 
 == Scenario Testing
 

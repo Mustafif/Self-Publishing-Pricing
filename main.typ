@@ -36,7 +36,6 @@
 #pagebreak()
 
 #include "introduction.typ"
-
 #pagebreak()
 #include "objective_fn.typ"
 #pagebreak()
