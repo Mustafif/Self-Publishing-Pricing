@@ -20,11 +20,11 @@
       organization: [MoKa Reads],
       location: [],
       email: "mustafif.khan@mokareads.org",
-      url: "mokareads.org", 
+      url: "mokareads.org",
     ),
   ),
   abstract: include "abstract.typ",
-  bibliography: bibliography("zotero.bib", full: false, style:"acm-sig-proceedings-long-author-list.csl"),
+  bibliography: bibliography("zotero.bib", full: true, style:"acm-sig-proceedings-long-author-list.csl"),
 )
 
 
