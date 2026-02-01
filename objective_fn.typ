@@ -33,6 +33,14 @@ $
 v_i (p_i) = exp(alpha_i - beta_i p_i)
 $<mnl>
 
+// #todo[
+//   We should also discuss about own-brand elasticity as we will use it in our empirical result, and use the fact that typically high price sensisity means that the product has high elasticity. 
+// ]
+
+// $
+// epsilon_i = beta_i (1-d_i (bold(p)))p_i  
+// $<elasticity>
+
 // Assumptions of our model
 In this paper we have assumptions that our model follows, the first is that we assume the population $M$ in our model are aware of our book and will decide if they want to purchase it at one of the platforms we are selling our book, or choose the no purchase option $v_0$ and we have lost that customer. 
 
